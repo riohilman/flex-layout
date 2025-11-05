@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warung Nusantara - Menu Makanan</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+
+    .menu-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .menu-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      width: 320px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .menu-image {
+      position: relative;
+    }
+
+    .menu-image img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #ff4444;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      font-weight: bold;
+    }
+
+    .menu-info {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-title {
+      font-size: 1.6em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .menu-description {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      flex-grow: 1;
+      font-size: 0.95em;
+    }
+
+    .menu-details {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .detail-badge {
+      background: #fff3e0;
+      color: #ff6a88;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.85em;
+      font-weight: 600;
+    }
+
+    .spicy {
+      color: #ff4444;
+    }
+
+    .menu-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 15px;
+      border-top: 2px solid #f0f0f0;
+    }
+
+    .price {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #ff6a88;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%);
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+
+    .stars {
+      color: #ffa500;
+      font-size: 1.1em;
+    }
+
+    .rating-text {
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      .menu-card {
+        width: 100%;
+        max-width: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Warung Nusantara</h1>
+      <p>Cita Rasa Asli Indonesia</p>
+    </header>
+
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-image">
+          <img src="images/prananta-haroun-PwjaasXRuk4-unsplash.jpg" alt="Rendang Daging" />
+          <span class="popular-badge">POPULER</span>
+        </div>
+        <div class="menu-info">
+          <div class="rating">
+            <span class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </span>
+            <span class="rating-text">(4.9/5)</span>
+          </div>
+          <h2 class="menu-title">Rendang Daging</h2>
+          <p class="menu-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <div class="menu-details">
+            <span class="detail-badge">
+              <i class="fa-regular fa-clock"></i> 30 menit
+            </span>
+            <span class="detail-badge">
+              <i class="fa-solid fa-fire"></i> 520 kal
+            </span>
+            <span class="detail-badge spicy">
+              <i class="fa-solid fa-pepper-hot"></i> Pedas
+            </span>
+          </div>
+          <div class="menu-footer">
+            <span class="price">Rp 45.000</span>
+            <button class="btn">Pesan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-image">
+          <img src="images/subagus-indra-XkaqvzSOgvE-unsplash.jpg" alt="Soto Ayam" />
+          <span class="popular-badge">POPULER</span>
+        </div>
+        <div class="menu-info">
+          <div class="rating">
+            <span class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </span>
+            <span class="rating-text">(4.8/5)</span>
+          </div>
+          <h2 class="menu-title">Soto Ayam</h2>
+          <p class="menu-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+          </p>
+          <div class="menu-details">
+            <span class="detail-badge">
+              <i class="fa-regular fa-clock"></i> 25 menit
+            </span>
+            <span class="detail-badge">
+              <i class="fa-solid fa-fire"></i> 380 kal
+            </span>
+          </div>
+          <div class="menu-footer">
+            <span class="price">Rp 28.000</span>
+            <button class="btn">Pesan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-image">
+          <img src="images/syauqy-ayyash-9uNxoURPtXI-unsplash.jpg" alt="Sate Ayam" />
+        </div>
+        <div class="menu-info">
+          <div class="rating">
+            <span class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </span>
+            <span class="rating-text">(5.0/5)</span>
+          </div>
+          <h2 class="menu-title">Sate Ayam</h2>
+          <p class="menu-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <div class="menu-details">
+            <span class="detail-badge">
+              <i class="fa-regular fa-clock"></i> 20 menit
+            </span>
+            <span class="detail-badge">
+              <i class="fa-solid fa-fire"></i> 420 kal
+            </span>
+          </div>
+          <div class="menu-footer">
+            <span class="price">Rp 35.000</span>
+            <button class="btn">Pesan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-image">
+          <img src="images/inna-safa-5SXubfLjTWY-unsplash.jpg" alt="Gado-Gado" />
+        </div>
+        <div class="menu-info">
+          <div class="rating">
+            <span class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </span>
+            <span class="rating-text">(4.7/5)</span>
+          </div>
+          <h2 class="menu-title">Gado-Gado</h2>
+          <p class="menu-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse.
+          </p>
+          <div class="menu-details">
+            <span class="detail-badge">
+              <i class="fa-regular fa-clock"></i> 15 menit
+            </span>
+            <span class="detail-badge">
+              <i class="fa-solid fa-fire"></i> 280 kal
+            </span>
+            <span class="detail-badge">
+              Sehat
+            </span>
+          </div>
+          <div class="menu-footer">
+            <span class="price">Rp 25.000</span>
+            <button class="btn">Pesan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-image">
+          <img src="images/inna-safa-7EOs6Zxf5OE-unsplash.jpg" alt="Nasi Gudeg" />
+        </div>
+        <div class="menu-info">
+          <div class="rating">
+            <span class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </span>
+            <span class="rating-text">(4.6/5)</span>
+          </div>
+          <h2 class="menu-title">Nasi Gudeg</h2>
+          <p class="menu-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+          </p>
+          <div class="menu-details">
+            <span class="detail-badge">
+              <i class="fa-regular fa-clock"></i> 35 menit
+            </span>
+            <span class="detail-badge">
+              <i class="fa-solid fa-fire"></i> 480 kal
+            </span>
+          </div>
+          <div class="menu-footer">
+            <span class="price">Rp 32.000</span>
+            <button class="btn">Pesan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-image">
+          <img src="images/6794cd15c98da-nasi-padang_cianjur.jpg" alt="Nasi Padang" />
+          <span class="popular-badge">POPULER</span>
+        </div>
+        <div class="menu-info">
+          <div class="rating">
+            <span class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </span>
+            <span class="rating-text">(4.9/5)</span>
+          </div>
+          <h2 class="menu-title">Nasi Padang</h2>
+          <p class="menu-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum.
+          </p>
+          <div class="menu-details">
+            <span class="detail-badge">
+              <i class="fa-regular fa-clock"></i> 25 menit
+            </span>
+            <span class="detail-badge">
+              <i class="fa-solid fa-fire"></i> 650 kal
+            </span>
+            <span class="detail-badge spicy">
+              <i class="fa-solid fa-pepper-hot"></i> Pedas
+            </span>
+          </div>
+          <div class="menu-footer">
+            <span class="price">Rp 38.000</span>
+            <button class="btn">Pesan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-image">
+          <img src="images/a6fb29e53206b849ae18c5e5db939712.jpg" alt="Ayam Geprek" />
+        </div>
+        <div class="menu-info">
+          <div class="rating">
+            <span class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </span>
+            <span class="rating-text">(4.5/5)</span>
+          </div>
+          <h2 class="menu-title">Ayam Geprek</h2>
+          <p class="menu-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur.
+          </p>
+          <div class="menu-details">
+            <span class="detail-badge">
+              <i class="fa-regular fa-clock"></i> 20 menit
+            </span>
+            <span class="detail-badge">
+              <i class="fa-solid fa-fire"></i> 560 kal
+            </span>
+            <span class="detail-badge spicy">
+              <i class="fa-solid fa-pepper-hot"></i> Pedas
+            </span>
+          </div>
+          <div class="menu-footer">
+            <span class="price">Rp 22.000</span>
+            <button class="btn">Pesan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-image">
+          <img src="images/iosi-pratama-g0dBbrGmMe0-unsplash.jpg" alt="Nasi Goreng" />
+        </div>
+        <div class="menu-info">
+          <div class="rating">
+            <span class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </span>
+            <span class="rating-text">(4.8/5)</span>
+          </div>
+          <h2 class="menu-title">Nasi Goreng</h2>
+          <p class="menu-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper.
+          </p>
+          <div class="menu-details">
+            <span class="detail-badge">
+              <i class="fa-regular fa-clock"></i> 18 menit
+            </span>
+            <span class="detail-badge">
+              <i class="fa-solid fa-fire"></i> 490 kal
+            </span>
+            <span class="detail-badge spicy">
+              <i class="fa-solid fa-pepper-hot"></i> Pedas
+            </span>
+          </div>
+          <div class="menu-footer">
+            <span class="price">Rp 20.000</span>
+            <button class="btn">Pesan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-image">
+          <img src="images/60569b33a2b3d.jpeg" alt="Pecel Lele" />
+        </div>
+        <div class="menu-info">
+          <div class="rating">
+            <span class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </span>
+            <span class="rating-text">(4.6/5)</span>
+          </div>
+          <h2 class="menu-title">Pecel Lele</h2>
+          <p class="menu-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
+          </p>
+          <div class="menu-details">
+            <span class="detail-badge">
+              <i class="fa-regular fa-clock"></i> 22 menit
+            </span>
+            <span class="detail-badge">
+              <i class="fa-solid fa-fire"></i> 410 kal
+            </span>
+            <span class="detail-badge spicy">
+              <i class="fa-solid fa-pepper-hot"></i> Pedas
+            </span>
+          </div>
+          <div class="menu-footer">
+            <span class="price">Rp 24.000</span>
+            <button class="btn">Pesan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
